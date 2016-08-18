@@ -1,0 +1,3 @@
+[submodule "joindin-api"]
+	path = joindin-api
+	url = https://github.com/joindin/joindin-api.git

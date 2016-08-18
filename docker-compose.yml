@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  api:
+    image: php:5.6-apache
+    working_dir: /var/www
+    volumes:
+      - ./joindin-api:/var/www
+      - ./etc/apache/virtual-host.api.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./etc/joindin/api/config.php:/var/www/src/config.php
+      - ./etc/joindin/api/database.php:/var/www/src/database.php
+    ports:
+      - 54641:80
+
+  database:
+    image: mariadb:10
+    environment:
+      MYSQL_ROOT_PASSWORD: joindin
